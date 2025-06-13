@@ -1,0 +1,7 @@
+.banner{
+    background-image: url("../../../../src/assets/img/educacion.jpeg");
+    background-position: top center;
+    background-size: cover;
+    background-attachment:fixed;
+    padding: 25%;
+}
