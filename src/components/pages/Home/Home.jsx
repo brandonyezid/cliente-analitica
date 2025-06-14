@@ -1,4 +1,4 @@
-import './Home.css'
+        import './Home.css'
 
 export function Home (){
     return(
@@ -8,8 +8,8 @@ export function Home (){
         </section>
         <section className='my-5 container'>
             <section className='row'>
-                <section className='col-12-col-md-6'>
-                    <img src="../../../../src/assets/img/educacion.jpeg" alt="educacion" />
+                <section className='col-5-col-md-5'>
+                    <img src="../../../../src/assets/img/estudiantes.jpeg" alt="educacion" />
                 </section>
                 <section className="col-12 col-md-6">
                     <h2>CLASSROM APP & copy</h2>

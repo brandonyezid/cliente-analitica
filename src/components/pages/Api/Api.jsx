@@ -1,32 +1,42 @@
-export function Api (){
-    return(
-        <>
-        <section className="container">
-            <section className="row">
-                <section className="col-12">
-                <h3>control de asistencias: </h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                     Distinctio sapiente magnam, sit voluptas, esse a at mollitia
-                      consequuntur vero necessitatibus accusamus delectus rem quisquam
-                       ab id aliquid alias? Illum, ad?</p>
-                       <hr />
-            </section>
-            
+// src/components/pages/Api/Api.jsx (o un archivo de servicio dedicado)
+import React, { useState, useEffect } from 'react';
 
-            </section>
-            <section className="row justify-content-center">
-                <section className="col-12 col-md-8">
-                    <form action="" className="p-4  shadow my-3 border roundend ">
-                        <input type="text" className="form-control mb-3" />
-                        <input type="text" className="form-control mb-3" />
-                        <input type="text" className="form-control mb-3" />
-                        <button className="btn bnt-primary">Enviar</button>
-                    </form>
+function Api() {
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-                </section>
-            </section>
-            </section>
-        </>
-    )
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                // Asegúrate de que esta URL sea la de tu backend de Spring Boot
+                // Por ejemplo: http://localhost:8080/api/datos_analitica
+                const response = await fetch('http://localhost:8080/api/some_endpoint');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const result = await response.json();
+                setData(result);
+            } catch (err) {
+                setError(err);
+            } finally {
+                setLoading(false);
+            }
+        };
 
+        fetchData();
+    }, []); // El array vacío asegura que se ejecute solo una vez al montar
+
+    if (loading) return <div>Cargando datos...</div>;
+    if (error) return <div>Error al cargar los datos: {error.message}</div>;
+
+    return (
+        <div>
+            <h2>Datos de la API</h2>
+            <pre>{JSON.stringify(data, null, 2)}</pre>
+            {/* Aquí puedes renderizar los datos de forma más estructurada */}
+        </div>
+    );
 }
+
+export default Api;

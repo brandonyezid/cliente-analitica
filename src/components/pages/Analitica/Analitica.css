@@ -1,0 +1,30 @@
+/* src/components/pages/Analitica/Analitica.css */
+
+.analitica-image-grid {
+    display: grid; /* Usamos CSS Grid para una disposición en cuadrícula */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Crea columnas que se ajustan automáticamente, con un ancho mínimo de 200px y máximo de 1fr (fracción del espacio disponible) */
+    gap: 20px; /* Espacio entre las imágenes */
+    padding: 20px; /* Espacio alrededor de la cuadrícula */
+}
+
+.analitica-image {
+    width: 100%; /* La imagen ocupa todo el ancho de su celda en la cuadrícula */
+    height: auto; /* Mantiene la proporción */
+    border-radius: 8px; /* Opcional: bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Opcional: sombra */
+}
+
+/* O puedes usar Flexbox si prefieres */
+/* .analitica-image-grid {
+/* display: flex;
+/* flex-wrap: wrap;
+/* justify-content: center;
+/* gap: 20px;
+/* padding: 20px;
+/* }
+/*
+/* .analitica-image {
+/* max-width: 300px; /* Ancho máximo para cada imagen */
+/* height: auto;
+/* margin-bottom: 10px;
+/* } */
